@@ -20,11 +20,11 @@ class App extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
     
-        fetch(url + "s='Star Wars'&plot=short&r=json")
+        fetch(`${url}s='Star Wars'&plot=short&r=json`)
           .then(res => res.json())
           .then(movies => {
             return Promise.all(movies.Search.map(movie => {
-              return fetch(url + "i=${movie.imdbID}&plot=short&r=json")
+              return fetch(`${url}i=${movie.imdbID}&plot=short&r=json`)
                     .then(res => res.json());
             }));
           })
@@ -48,13 +48,17 @@ class App extends Component {
             {this.state.error}
           </div>}
 
-        {!this.state.selectedId && this.state.movies.map(({ imdbID, Title, Director }) => {
+        {!this.state.selectedId && this.state.movies.map(({ imdbID, Poster, Title, Director }) => {
           return (
             <div key={imdbID} onClick={() => this.setState({selectedID: imdbID})}>
+              <img src={`${Poster}`} />
               <div>
-              test
+              <a href={Title} target="">
                 {Title}
-                {Director}
+                </a>
+                <br />
+                Directed by: {Director}
+                <hr />
               </div>
             </div>
           );
