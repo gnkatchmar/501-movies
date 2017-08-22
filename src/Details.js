@@ -23,7 +23,7 @@ class Details extends Component {
 
         this.setState({
           loading: false,
-          data: movies[this.props.imdID],
+          data: movies[this.props.imdbID],
         });
       },
       e => {
@@ -44,14 +44,13 @@ class Details extends Component {
    render() {
     return (
       <div>
-        sssssssssssssssss
+        Details Test
       
       
         <button onClick={this.props.onClear}>Clear</button>
       </div>
     );
   }
-  debugger;
 }
 
 export default Details;
