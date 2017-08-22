@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
+    this.setState({ loading: true });
     
         fetch(`${url}s='Star Wars'&plot=short&r=json`)
           .then(res => res.json())
@@ -29,7 +29,7 @@ class App extends Component {
             }));
           })
           .then(movies => {
-            this.setState({ movies: movies, isLoading: false });
+            this.setState({ movies: movies, loading: false });
           });
   }
 
