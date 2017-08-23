@@ -50,13 +50,11 @@ class App extends Component {
 
         {!this.state.selectedId && this.state.movies.map(({ imdbID, Poster, Title, Director }) => {
           return (
-            <div key={imdbID} onClick={() => this.setState({selectedID: imdbID})}>
+            <div key={imdbID} onClick={() => this.setState({selectedId: imdbID})}>
               <img src={`${Poster}`} />
               <div>
-              <a href={Title} target="">
                 {Title}
-                </a>
-                <br />
+               <br />
                 Directed by: {Director}
                 <hr />
               </div>
