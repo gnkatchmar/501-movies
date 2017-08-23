@@ -4,6 +4,8 @@ import React, { Component } from "react";
 const API_KEY = '3db77742';
 const url = `http://www.omdbapi.com/?apikey=${API_KEY}&`
 
+debugger;  //hitting
+
 class Details extends Component {
 
   state = {
@@ -15,6 +17,8 @@ class Details extends Component {
   mount = false;
 
   componentDidMount() {
+
+    debugger; //not hitting
     this.mount = true;
 
     return fetch(`${url}s='Star Wars'&plot=short&r=json`).then(res => res.json()).then(
@@ -40,6 +44,8 @@ class Details extends Component {
   componentWillUnmount() {
     this.mount = false;
   }
+
+  debugger; //not hitting
 
    render() {
     return (
